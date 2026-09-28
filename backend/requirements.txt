@@ -3,3 +3,4 @@ dotenv
 supabase
 pydantic
 uvicorn
+email-validator
