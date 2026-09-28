@@ -2,7 +2,8 @@
 // ADMIN QUESTIONS
 // =========================================
 
-const API_URL = "http://127.0.0.1:8000";
+const API_BASE_URL =
+    "https://debanjan-portfolio-api.onrender.com";
 
 let adminPassword = "";
 
@@ -11,7 +12,9 @@ let adminPassword = "";
 // ELEMENTS
 // =========================================
 
-const loginBox = document.getElementById("loginBox");
+const loginBox =
+    document.getElementById("loginBox");
+
 const adminPasswordInput =
     document.getElementById("adminPassword");
 
@@ -32,57 +35,70 @@ const questionsContainer =
 // LOGIN
 // =========================================
 
-loginBtn.addEventListener("click", async function () {
+loginBtn.addEventListener(
+    "click",
+    async function () {
 
-    const password = adminPasswordInput.value.trim();
+        const password =
+            adminPasswordInput.value.trim();
 
-    if (!password) {
-        loginMessage.textContent = "Enter admin password.";
-        return;
-    }
+        if (!password) {
 
-    loginBtn.disabled = true;
-    loginBtn.textContent = "Checking...";
+            loginMessage.textContent =
+                "Enter admin password.";
 
-    try {
-
-        const response = await fetch(
-            `${API_URL}/api/admin/questions`,
-            {
-                method: "GET",
-                headers: {
-                    "X-Admin-Password": password
-                }
-            }
-        );
-
-        const data = await response.json();
-
-        if (!response.ok) {
-            throw new Error(
-                data.detail || "Invalid admin password"
-            );
+            return;
         }
 
-        adminPassword = password;
+        loginBtn.disabled = true;
+        loginBtn.textContent = "Checking...";
 
-        loginBox.style.display = "none";
+        try {
 
-        renderQuestions(data.data);
+            const response = await fetch(
+                `${API_BASE_URL}/api/admin/questions`,
+                {
+                    method: "GET",
 
-    } catch (error) {
+                    headers: {
+                        "X-Admin-Password": password
+                    }
+                }
+            );
 
-        console.error(error);
+            const data =
+                await response.json();
 
-        loginMessage.textContent = error.message;
+            if (!response.ok) {
 
-    } finally {
+                throw new Error(
+                    data.detail ||
+                    "Invalid admin password"
+                );
+            }
 
-        loginBtn.disabled = false;
-        loginBtn.textContent = "Enter →";
+            adminPassword = password;
 
+            loginBox.style.display = "none";
+
+            renderQuestions(data.data);
+
+        } catch (error) {
+
+            console.error(error);
+
+            loginMessage.textContent =
+                error.message;
+
+        } finally {
+
+            loginBtn.disabled = false;
+
+            loginBtn.textContent =
+                "Enter →";
+        }
     }
-});
+);
 
 
 // =========================================
@@ -96,25 +112,32 @@ async function loadQuestions() {
     }
 
     loadQuestionsBtn.disabled = true;
-    loadQuestionsBtn.textContent = "Loading...";
+
+    loadQuestionsBtn.textContent =
+        "Loading...";
 
     try {
 
         const response = await fetch(
-            `${API_URL}/api/admin/questions`,
+            `${API_BASE_URL}/api/admin/questions`,
             {
                 method: "GET",
+
                 headers: {
-                    "X-Admin-Password": adminPassword
+                    "X-Admin-Password":
+                        adminPassword
                 }
             }
         );
 
-        const data = await response.json();
+        const data =
+            await response.json();
 
         if (!response.ok) {
+
             throw new Error(
-                data.detail || "Could not load questions"
+                data.detail ||
+                "Could not load questions"
             );
         }
 
@@ -133,8 +156,9 @@ async function loadQuestions() {
     } finally {
 
         loadQuestionsBtn.disabled = false;
-        loadQuestionsBtn.textContent = "Refresh ↻";
 
+        loadQuestionsBtn.textContent =
+            "Refresh ↻";
     }
 }
 
@@ -158,59 +182,92 @@ function renderQuestions(questions) {
         return;
     }
 
-
     questions.forEach(function (question) {
 
-        const card = document.createElement("div");
+        const card =
+            document.createElement("div");
 
-        card.className = "question-card";
+        card.className =
+            "question-card";
 
 
-        const createdDate = new Date(
-            question.created_at
-        ).toLocaleString();
+        const createdDate =
+            new Date(
+                question.created_at
+            ).toLocaleString();
+
+
+        // =====================================
+        // QUESTION STATUS
+        // =====================================
+
+        const status =
+            String(question.status || "")
+                .replace(/'/g, "")
+                .trim()
+                .toLowerCase();
 
 
         // =====================================
         // PENDING QUESTION
         // =====================================
 
-        const status = String(question.status || "")
-            .replace(/'/g, "")
-            .trim()
-            .toLowerCase();
-
         if (status === "pending") {
 
             card.innerHTML = `
-
                 <div class="question-meta">
-                    <span>#${question.id}</span>
-                    <span>${escapeHTML(question.status)}</span>
+
+                    <span>
+                        #${question.id}
+                    </span>
+
+                    <span>
+                        ${escapeHTML(
+                            question.status
+                        )}
+                    </span>
+
                 </div>
+
 
                 <div class="question-text">
-                    ${escapeHTML(question.question)}
+
+                    ${escapeHTML(
+                        question.question
+                    )}
+
                 </div>
+
 
                 ${
                     question.email
                         ? `
                             <div class="question-email">
-                                ${escapeHTML(question.email)}
+
+                                ${escapeHTML(
+                                    question.email
+                                )}
+
                             </div>
                           `
                         : ""
                 }
 
+
                 <div class="question-date">
-                    ${escapeHTML(createdDate)}
+
+                    ${escapeHTML(
+                        createdDate
+                    )}
+
                 </div>
+
 
                 <textarea
                     class="answer-box"
                     placeholder="Write your answer..."
                 ></textarea>
+
 
                 <button
                     type="button"
@@ -222,10 +279,14 @@ function renderQuestions(questions) {
 
 
             const answerBox =
-                card.querySelector(".answer-box");
+                card.querySelector(
+                    ".answer-box"
+                );
 
             const answerButton =
-                card.querySelector(".answer-btn");
+                card.querySelector(
+                    ".answer-btn"
+                );
 
 
             answerButton.addEventListener(
@@ -251,41 +312,67 @@ function renderQuestions(questions) {
         else {
 
             card.innerHTML = `
-
                 <div class="question-meta">
-                    <span>#${question.id}</span>
-                    <span>${escapeHTML(question.status)}</span>
+
+                    <span>
+                        #${question.id}
+                    </span>
+
+                    <span>
+                        ${escapeHTML(
+                            question.status
+                        )}
+                    </span>
+
                 </div>
+
 
                 <div class="question-text">
-                    ${escapeHTML(question.question)}
+
+                    ${escapeHTML(
+                        question.question
+                    )}
+
                 </div>
+
 
                 ${
                     question.email
                         ? `
                             <div class="question-email">
-                                ${escapeHTML(question.email)}
+
+                                ${escapeHTML(
+                                    question.email
+                                )}
+
                             </div>
                           `
                         : ""
                 }
 
+
                 <div class="answered">
 
-                    <strong>Answer</strong>
+                    <strong>
+                        Answer
+                    </strong>
 
                     <p>
-                        ${escapeHTML(question.answer || "")}
+
+                        ${escapeHTML(
+                            question.answer || ""
+                        )}
+
                     </p>
 
                 </div>
             `;
-
         }
 
 
-        questionsContainer.appendChild(card);
+        questionsContainer.appendChild(
+            card
+        );
 
     });
 }
@@ -301,7 +388,8 @@ async function answerQuestion(
     answerButton
 ) {
 
-    const answer = answerBox.value.trim();
+    const answer =
+        answerBox.value.trim();
 
     if (!answer) {
 
@@ -312,19 +400,24 @@ async function answerQuestion(
 
 
     answerButton.disabled = true;
-    answerButton.textContent = "Saving...";
+
+    answerButton.textContent =
+        "Saving...";
 
 
     try {
 
         const response = await fetch(
-            `${API_URL}/api/admin/questions/${questionId}`,
+            `${API_BASE_URL}/api/admin/questions/${questionId}`,
             {
                 method: "PATCH",
 
                 headers: {
-                    "Content-Type": "application/json",
-                    "X-Admin-Password": adminPassword
+                    "Content-Type":
+                        "application/json",
+
+                    "X-Admin-Password":
+                        adminPassword
                 },
 
                 body: JSON.stringify({
@@ -334,24 +427,31 @@ async function answerQuestion(
         );
 
 
-        const data = await response.json();
+        const data =
+            await response.json();
 
 
         if (!response.ok) {
 
             throw new Error(
-                data.detail || "Could not save answer"
+                data.detail ||
+                "Could not save answer"
             );
-
         }
 
 
-        answerButton.textContent = "Answered ✓";
+        answerButton.textContent =
+            "Answered ✓";
 
 
-        setTimeout(function () {
-            loadQuestions();
-        }, 500);
+        setTimeout(
+            function () {
+
+                loadQuestions();
+
+            },
+            500
+        );
 
 
     } catch (error) {
@@ -359,10 +459,10 @@ async function answerQuestion(
         console.error(error);
 
         answerButton.disabled = false;
-        answerButton.textContent = "Try again →";
 
+        answerButton.textContent =
+            "Try again →";
     }
-
 }
 
 
@@ -382,9 +482,11 @@ loadQuestionsBtn.addEventListener(
 
 function escapeHTML(value) {
 
-    const div = document.createElement("div");
+    const div =
+        document.createElement("div");
 
-    div.textContent = value ?? "";
+    div.textContent =
+        value ?? "";
 
     return div.innerHTML;
 }
