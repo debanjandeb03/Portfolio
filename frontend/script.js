@@ -2,10 +2,16 @@
 // PORTFOLIO SCRIPT
 // =========================================
 
+// =========================================
+// PRODUCTION API
+// =========================================
 
-// -----------------------------------------
+const API_BASE_URL = "https://debanjan-portfolio-api.onrender.com";
+
+
+// =========================================
 // CURRENT YEAR
-// -----------------------------------------
+// =========================================
 
 const yearElement = document.getElementById("year");
 
@@ -14,9 +20,9 @@ if (yearElement) {
 }
 
 
-// -----------------------------------------
+// =========================================
 // SMOOTH SCROLLING
-// -----------------------------------------
+// =========================================
 
 const navigationLinks =
     document.querySelectorAll('a[href^="#"]');
@@ -43,19 +49,17 @@ navigationLinks.forEach(link => {
                 behavior: "smooth",
                 block: "start"
             });
-
         }
-
     });
-
 });
 
 
-// -----------------------------------------
+// =========================================
 // NAVBAR ON SCROLL
-// -----------------------------------------
+// =========================================
 
-const navbar = document.querySelector(".navbar");
+const navbar =
+    document.querySelector(".navbar");
 
 window.addEventListener("scroll", () => {
 
@@ -69,15 +73,13 @@ window.addEventListener("scroll", () => {
     } else {
 
         navbar.style.borderBottom = "none";
-
     }
-
 });
 
 
-// -----------------------------------------
+// =========================================
 // MORE PROJECTS
-// -----------------------------------------
+// =========================================
 
 const moreProjectsBtn =
     document.getElementById("moreProjectsBtn");
@@ -102,18 +104,15 @@ if (moreProjectsBtn && extraProjects) {
 
                 moreProjectsBtn.textContent =
                     "More Projects ↓";
-
             }
-
         }
     );
-
 }
 
 
-// -----------------------------------------
+// =========================================
 // MORE CERTIFICATIONS
-// -----------------------------------------
+// =========================================
 
 const moreCertificationsBtn =
     document.getElementById("moreCertificationsBtn");
@@ -140,12 +139,9 @@ if (moreCertificationsBtn && extraCertifications) {
 
                 moreCertificationsBtn.textContent =
                     "More Certifications ↓";
-
             }
-
         }
     );
-
 }
 
 
@@ -176,12 +172,9 @@ if (askButton && questionForm) {
 
                 askButton.textContent =
                     "Ask me something ↗";
-
             }
-
         }
     );
-
 }
 
 
@@ -221,7 +214,6 @@ if (
                 questionInput.focus();
 
                 return;
-
             }
 
 
@@ -235,7 +227,7 @@ if (
             try {
 
                 const response = await fetch(
-                    "http://127.0.0.1:8000/api/questions",
+                    `${API_BASE_URL}/api/questions`,
                     {
                         method: "POST",
 
@@ -261,7 +253,6 @@ if (
                         data.detail ||
                         "Something went wrong"
                     );
-
                 }
 
 
@@ -291,15 +282,13 @@ if (
                 submitQuestion.textContent =
                     "Try again →";
 
+
             } finally {
 
                 submitQuestion.disabled = false;
-
             }
-
         }
     );
-
 }
 
 
@@ -332,7 +321,6 @@ if (previousQueriesBtn && answeredQuestions) {
                     "Previous Queries ↓";
 
                 return;
-
             }
 
 
@@ -344,10 +332,8 @@ if (previousQueriesBtn && answeredQuestions) {
 
 
             await loadAnsweredQuestions();
-
         }
     );
-
 }
 
 
@@ -360,7 +346,7 @@ async function loadAnsweredQuestions() {
     try {
 
         const response = await fetch(
-            "http://127.0.0.1:8000/api/questions/answered"
+            `${API_BASE_URL}/api/questions/answered`
         );
 
 
@@ -374,7 +360,6 @@ async function loadAnsweredQuestions() {
                 data.detail ||
                 "Could not load previous queries"
             );
-
         }
 
 
@@ -394,9 +379,7 @@ async function loadAnsweredQuestions() {
                 Could not load previous queries.
             </p>
         `;
-
     }
-
 }
 
 
@@ -418,7 +401,6 @@ function renderAnsweredQuestions(questions) {
         `;
 
         return;
-
     }
 
 
@@ -433,7 +415,6 @@ function renderAnsweredQuestions(questions) {
 
 
         questionElement.innerHTML = `
-
             <div class="explore-question-label">
                 Q.
             </div>
@@ -451,16 +432,13 @@ function renderAnsweredQuestions(questions) {
                 ${escapeHTML(item.answer || "")}
 
             </div>
-
         `;
 
 
         answeredQuestions.appendChild(
             questionElement
         );
-
     });
-
 }
 
 
@@ -477,5 +455,4 @@ function escapeHTML(value) {
         value ?? "";
 
     return div.innerHTML;
-
 }
