@@ -1,0 +1,324 @@
+/* =========================================
+   ADMIN PAGE
+   ========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #f8f8f6;
+    color: #111;
+    font-family: Arial, sans-serif;
+}
+
+button,
+input,
+textarea {
+    font-family: inherit;
+}
+
+/* =========================================
+   PAGE
+   ========================================= */
+
+.page {
+    width: min(1120px, calc(100% - 48px));
+    margin: 22px auto;
+    background: #f8f8f6;
+    min-height: calc(100vh - 44px);
+}
+
+.admin-page {
+    padding: 70px 12% 100px;
+}
+
+/* =========================================
+   SECTION LABEL
+   ========================================= */
+
+.section-label {
+    margin-bottom: 55px;
+    font-family: monospace;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    color: #777;
+}
+
+/* =========================================
+   HEADER
+   ========================================= */
+
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #d7d7d3;
+}
+
+.admin-header h1 {
+    font-size: clamp(48px, 6vw, 70px);
+    line-height: 1;
+    font-weight: 300;
+    letter-spacing: -0.05em;
+}
+
+.admin-header p {
+    margin-top: 12px;
+    color: #777;
+    font-size: 14px;
+}
+
+/* =========================================
+   BUTTONS
+   ========================================= */
+
+button {
+    background: none;
+    color: #111;
+    border: none;
+    border-bottom: 1px solid #999;
+    padding: 8px 0;
+    font-family: monospace;
+    font-size: 11px;
+    cursor: pointer;
+}
+
+button:hover {
+    color: #777;
+    border-bottom-color: #777;
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* =========================================
+   LOGIN
+   ========================================= */
+
+.admin-login {
+    max-width: 500px;
+    margin: 60px 0 70px;
+}
+
+.admin-login input {
+    width: 100%;
+    background: transparent;
+    color: #111;
+    border: none;
+    border-bottom: 1px solid #bbb;
+    padding: 14px 0;
+    outline: none;
+    font-family: monospace;
+    font-size: 13px;
+}
+
+.admin-login input:focus {
+    border-bottom-color: #111;
+}
+
+.admin-login button {
+    margin-top: 25px;
+}
+
+#loginMessage {
+    margin-top: 15px;
+    font-family: monospace;
+    font-size: 10px;
+    color: #777;
+}
+
+/* =========================================
+   QUESTIONS
+   ========================================= */
+
+.questions-container {
+    margin-top: 20px;
+}
+
+/* =========================================
+   QUESTION CARD
+   ========================================= */
+
+.question-card {
+    padding: 40px 0;
+    border-top: 1px solid #d7d7d3;
+}
+
+.question-card:last-child {
+    border-bottom: 1px solid #d7d7d3;
+}
+
+/* =========================================
+   QUESTION META
+   ========================================= */
+
+.question-meta {
+    display: flex;
+    gap: 25px;
+    margin-bottom: 22px;
+    font-family: monospace;
+    font-size: 10px;
+    color: #888;
+}
+
+.question-meta span:nth-child(2) {
+    text-transform: uppercase;
+}
+
+/* =========================================
+   QUESTION
+   ========================================= */
+
+.question-text {
+    max-width: 750px;
+    font-size: 26px;
+    line-height: 1.35;
+    font-weight: 300;
+    letter-spacing: -0.02em;
+}
+
+/* =========================================
+   EMAIL
+   ========================================= */
+
+.question-email {
+    margin-top: 18px;
+    font-family: monospace;
+    font-size: 10px;
+    color: #777;
+}
+
+/* =========================================
+   DATE
+   ========================================= */
+
+.question-date {
+    margin-top: 8px;
+    font-family: monospace;
+    font-size: 10px;
+    color: #888;
+}
+
+/* =========================================
+   ANSWER BOX
+   ========================================= */
+
+.answer-box {
+    display: block;
+    width: 100%;
+    max-width: 750px;
+    min-height: 100px;
+    margin-top: 25px;
+    padding: 15px;
+
+    resize: vertical;
+
+    background: transparent;
+    border: 1px solid #ccc;
+    color: #111;
+
+    outline: none;
+
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.answer-box:focus {
+    border-color: #777;
+}
+
+.question-card button {
+    margin-top: 15px;
+}
+
+/* =========================================
+   ANSWERED QUESTION
+   ========================================= */
+
+.answered {
+    max-width: 750px;
+    margin-top: 25px;
+    padding: 20px 0;
+    border-top: 1px solid #d7d7d3;
+
+    color: #666;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.answered strong {
+    color: #111;
+    font-family: monospace;
+    font-size: 10px;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+/* =========================================
+   ERROR
+   ========================================= */
+
+.error {
+    margin-top: 15px;
+    font-family: monospace;
+    font-size: 11px;
+    color: #777;
+}
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 700px) {
+
+    .page {
+        width: calc(100% - 20px);
+        margin: 10px auto;
+    }
+
+    .admin-page {
+        padding: 50px 8% 80px;
+    }
+
+    .admin-header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .admin-header h1 {
+        font-size: 48px;
+    }
+
+    .question-text {
+        font-size: 21px;
+    }
+
+    .question-meta {
+        flex-wrap: wrap;
+        gap: 10px 20px;
+    }
+
+    .admin-login {
+        margin: 50px 0;
+    }
+}
+
+.answer-btn {
+    margin-top: 15px;
+}
+
+.answer-btn:hover {
+    color: #777;
+}

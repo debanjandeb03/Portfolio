@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin — Debanjan Portfolio</title>
+
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+
+<div class="page">
+
+    <main class="admin-page">
+
+        <p class="section-label">ADMIN / QUESTIONS</p>
+
+        <div class="admin-header">
+            <div>
+                <h1>Questions.</h1>
+                <p>Manage questions submitted through the portfolio.</p>
+            </div>
+
+            <button id="loadQuestionsBtn">
+                Refresh ↻
+            </button>
+        </div>
+
+        <div id="loginBox" class="admin-login">
+
+            <input
+                type="password"
+                id="adminPassword"
+                placeholder="Admin password"
+            >
+
+            <button id="loginBtn">
+                Enter →
+            </button>
+
+            <p id="loginMessage"></p>
+
+        </div>
+
+
+        <div id="questionsContainer" class="questions-container">
+        </div>
+
+    </main>
+
+</div>
+
+<script src="admin.js"></script>
+
+</body>
+</html>

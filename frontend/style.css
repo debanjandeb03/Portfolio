@@ -1,0 +1,1163 @@
+/* =========================================
+   RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #f8f8f6;
+    color: #111;
+    font-family: Arial, sans-serif;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* =========================================
+   PAGE
+========================================= */
+
+.page {
+    width: 100%;
+    min-height: 100vh;
+    background: #f8f8f6;
+    overflow: hidden;
+}
+
+/* =========================================
+   NAVIGATION
+========================================= */
+
+.navbar {
+    height: 86px;
+
+    padding: 0 12%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    font-size: 12px;
+
+    color: #555;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 55px;
+}
+
+.nav-link {
+    position: relative;
+}
+
+.resume-link {
+    position: relative;
+
+    font-family: monospace;
+
+    font-size: 10px;
+
+    color: #333;
+
+    padding-bottom: 3px;
+
+    border-bottom: 1px solid #999;
+}
+
+.resume-link:hover {
+    color: #777;
+}
+
+.nav-link {
+    position: relative;
+}
+
+.nav-link::after {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+
+    width: 0;
+    height: 1px;
+
+    background: #111;
+
+    transition: width 180ms ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+
+/* =========================================
+   LOGO
+========================================= */
+
+.logo {
+    font-family: monospace;
+
+    font-size: 11px;
+
+    letter-spacing: 0.08em;
+
+    color: #111;
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+    min-height: 650px;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    padding: 30px 12% 100px;
+}
+
+.hero-content {
+    width: 50%;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* Small heading */
+
+.eyebrow {
+    margin-bottom: 18px;
+
+    font-family: monospace;
+
+    font-size: 10px;
+
+    letter-spacing: 0.08em;
+
+    color: #777;
+}
+
+
+/* Main heading */
+
+.hero h1 {
+    font-size: clamp(54px, 7vw, 86px);
+
+    line-height: 0.98;
+
+    letter-spacing: -0.055em;
+
+    font-weight: 300;
+}
+
+
+/* Hero description */
+
+.hero-description {
+    max-width: 390px;
+
+    margin-top: 18px;
+
+    color: #777;
+
+    font-size: 14px;
+
+    line-height: 1.65;
+}
+
+
+/* =========================================
+   SOCIAL LINKS
+========================================= */
+
+.social-links {
+    display: flex;
+
+    gap: 22px;
+
+    margin-top: 52px;
+}
+
+.social-links a {
+    font-family: monospace;
+
+    font-size: 10px;
+
+    color: #333;
+
+    border-bottom: 1px solid #999;
+
+    padding-bottom: 3px;
+}
+
+.social-links a:hover {
+    color: #777;
+}
+
+
+/* =========================================
+   HERO ILLUSTRATION
+========================================= */
+
+.hero-illustration {
+    position: absolute;
+
+    width: 52%;
+
+    right: 5%;
+
+    top: 50px;
+
+    z-index: 1;
+}
+
+.hero-illustration img {
+    width: 100%;
+    height: auto;
+
+    display: block;
+
+    mix-blend-mode: multiply;
+    clip-path: inset(0 0 0 6px);
+}
+
+
+/* =========================================
+   SCROLL ARROW
+========================================= */
+
+.scroll-down {
+    position: absolute;
+
+    left: 12%;
+
+    bottom: 50px;
+
+    font-size: 22px;
+
+    font-weight: 300;
+
+    color: #555;
+}
+
+
+/* =========================================
+   COMMON SECTIONS
+========================================= */
+
+.section {
+    padding: 130px 12%;
+
+    border-top: 1px solid #d7d7d3;
+}
+
+.section-label {
+    margin-bottom: 70px;
+
+    font-family: monospace;
+
+    font-size: 10px;
+
+    letter-spacing: 0.08em;
+
+    color: #777;
+}
+
+
+/* =========================================
+   ABOUT
+========================================= */
+
+.about-content {
+    display: grid;
+
+    grid-template-columns: 1.2fr 1fr;
+
+    gap: 15%;
+}
+
+.about-content h2 {
+    font-size: clamp(38px, 5vw, 65px);
+
+    line-height: 1.02;
+
+    letter-spacing: -0.045em;
+
+    font-weight: 300;
+}
+
+.about-text {
+    max-width: 430px;
+
+    color: #666;
+
+    font-size: 14px;
+
+    line-height: 1.8;
+}
+
+.about-text p + p {
+    margin-top: 25px;
+}
+
+
+/* =========================================
+   PROJECTS
+========================================= */
+
+.project {
+    display: grid;
+
+    grid-template-columns: 7% 1fr;
+
+    gap: 4%;
+
+    padding: 45px 0;
+
+    border-top: 1px solid #d7d7d3;
+}
+
+.project:last-child {
+    border-bottom: 1px solid #d7d7d3;
+}
+
+.project-number {
+    font-family: monospace;
+
+    font-size: 11px;
+
+    color: #888;
+}
+
+.project-content h2 {
+    font-size: 30px;
+
+    font-weight: 300;
+
+    letter-spacing: -0.035em;
+}
+
+.project-type {
+    margin-top: 5px;
+
+    font-size: 12px;
+
+    color: #777;
+}
+
+.project-description {
+    max-width: 550px;
+
+    margin-top: 22px;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+
+    color: #555;
+}
+
+
+/* Technologies */
+
+.project-technologies {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px 15px;
+
+    margin-top: 23px;
+}
+
+/* =========================================
+   PROJECT GITHUB LINK
+========================================= */
+
+.project-github {
+    display: inline-block;
+
+    margin-top: 28px;
+
+    font-family: monospace;
+    font-size: 10px;
+
+    color: #333;
+
+    border-bottom: 1px solid #999;
+
+    padding-bottom: 3px;
+}
+
+.project-github:hover {
+    color: #777;
+}
+
+.project-technologies span {
+    font-family: monospace;
+
+    font-size: 9px;
+
+    color: #777;
+}
+
+.project-technologies span::before {
+    content: "· ";
+}
+
+/* =========================================
+   MORE PROJECTS
+========================================= */
+
+.more-projects-container {
+    display: flex;
+    justify-content: center;
+
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+.more-projects-btn {
+    background: none;
+    border: none;
+
+    font-family: monospace;
+    font-size: 11px;
+
+    color: #555;
+
+    cursor: pointer;
+
+    padding: 10px 0;
+
+    border-bottom: 1px solid #999;
+}
+
+.more-projects-btn:hover {
+    color: #111;
+}
+
+
+/* Extra projects are hidden initially */
+
+.extra-projects {
+    display: none;
+}
+
+
+/* When opened */
+
+.extra-projects.show {
+    display: block;
+}
+
+/* =========================================
+   SKILLS
+========================================= */
+
+.skills-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    border-top: 1px solid #d7d7d3;
+}
+
+.skill-group {
+    min-height: 155px;
+
+    padding: 30px 25px 30px 0;
+
+    border-bottom: 1px solid #d7d7d3;
+}
+
+.skill-group:nth-child(odd) {
+    border-right: 1px solid #d7d7d3;
+
+    padding-right: 35px;
+}
+
+.skill-group:nth-child(even) {
+    padding-left: 35px;
+}
+
+.skill-group h3 {
+    font-size: 12px;
+
+    font-weight: 400;
+
+    margin-bottom: 17px;
+}
+
+.skill-group p {
+    max-width: 400px;
+
+    color: #777;
+
+    font-size: 13px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================
+   EDUCATION
+========================================= */
+
+.education-content {
+    display: grid;
+
+    grid-template-columns: 18% 1fr auto;
+
+    gap: 5%;
+
+    align-items: start;
+
+    padding: 35px 0;
+
+    border-top: 1px solid #d7d7d3;
+
+    border-bottom: 1px solid #d7d7d3;
+
+    font-size: 12px;
+
+    color: #777;
+}
+
+.education-content h2 {
+    color: #111;
+
+    font-size: 22px;
+
+    font-weight: 300;
+
+    letter-spacing: -0.02em;
+
+    margin-bottom: 8px;
+}
+
+.cgpa {
+    color: #111;
+
+    font-weight: 400;
+}
+
+
+/* =========================================
+   CERTIFICATIONS
+========================================= */
+
+.certification-list {
+    border-top: 1px solid #d7d7d3;
+}
+
+.certification {
+    display: flex;
+
+    gap: 20px;
+
+    padding: 24px 0;
+
+    border-bottom: 1px solid #d7d7d3;
+
+    font-size: 13px;
+
+    color: #555;
+}
+
+.certification span {
+    width: 45px;
+
+    flex-shrink: 0;
+
+    font-family: monospace;
+
+    font-size: 10px;
+
+    color: #111;
+}
+
+/* =========================================
+   MORE CERTIFICATIONS
+========================================= */
+
+.more-certifications-container {
+    display: flex;
+    justify-content: center;
+
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+.more-certifications-btn {
+    background: none;
+    border: none;
+
+    font-family: monospace;
+    font-size: 11px;
+
+    color: #555;
+
+    cursor: pointer;
+
+    padding: 10px 0;
+
+    border-bottom: 1px solid #999;
+}
+
+.more-certifications-btn:hover {
+    color: #111;
+}
+
+/* Extra certifications hidden initially */
+
+.extra-certifications {
+    display: none;
+}
+
+/* Show extra certifications */
+
+.extra-certifications.show {
+    display: block;
+}
+
+
+/* =========================================
+   CONTACT
+========================================= */
+
+.contact {
+
+    min-height: 600px;
+
+    padding-top: 130px;
+
+    padding-bottom: 100px;
+
+}
+
+.contact h2 {
+
+    margin-top: 85px;
+
+    font-size: clamp(38px, 5vw, 65px);
+
+    line-height: 1.02;
+
+    letter-spacing: -0.045em;
+
+    font-weight: 300;
+
+}
+
+
+/* Contact details */
+
+.contact-details {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 30px;
+
+    margin-top: 40px;
+
+}
+
+.contact-details .email,
+.contact-details .phone {
+
+    display: inline-block;
+
+    padding-bottom: 6px;
+
+    border-bottom: 1px solid #222;
+
+    font-size: 16px;
+
+    color: #111;
+
+}
+
+
+/* Resume */
+
+.resume-contact {
+
+    display: inline-block;
+
+    padding-bottom: 6px;
+
+    border-bottom: 1px solid #222;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 16px;
+
+    color: #111;
+
+}
+
+.resume-contact:hover {
+
+    color: #777;
+
+}
+
+
+/* Social links */
+
+.contact-links {
+
+    display: flex;
+
+    gap: 30px;
+
+    margin-top: 60px;
+
+    font-family: monospace;
+
+    font-size: 10px;
+
+}
+
+.contact-links a:hover {
+
+    text-decoration: underline;
+
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.footer {
+    display: flex;
+
+    justify-content: space-between;
+
+    padding: 30px 12%;
+
+    border-top: 1px solid #d7d7d3;
+
+    font-family: monospace;
+
+    font-size: 9px;
+
+    color: #888;
+}
+
+.footer a:hover {
+    color: #111;
+}
+
+
+/* =========================================
+   TABLET / MOBILE
+========================================= */
+
+@media (max-width: 800px) {
+
+    .page {
+        width: calc(100% - 20px);
+
+        margin: 10px auto;
+    }
+
+
+    /* Navigation */
+
+    .navbar {
+        padding: 0 8%;
+
+        height: 70px;
+    }
+
+
+    /* General sections */
+
+    .section {
+        padding-left: 8%;
+
+        padding-right: 8%;
+
+        padding-top: 90px;
+
+        padding-bottom: 90px;
+    }
+
+
+    /* Hero */
+
+    .hero {
+        min-height: 680px;
+
+        align-items: flex-start;
+
+        padding: 100px 8% 80px;
+    }
+
+    .hero-content {
+        width: 100%;
+    }
+
+
+    /* Illustration */
+
+    .hero-illustration {
+        width: 100%;
+
+        right: -15%;
+
+        top: 340px;
+    }
+
+
+    /* Scroll arrow */
+
+    .scroll-down {
+        left: 8%;
+
+        bottom: 35px;
+    }
+
+
+    /* Section labels */
+
+    .section-label {
+        margin-bottom: 45px;
+    }
+
+
+    /* About */
+
+    .about-content {
+        grid-template-columns: 1fr;
+
+        gap: 45px;
+    }
+
+
+    /* Projects */
+
+    .project {
+        grid-template-columns: 40px 1fr;
+
+        gap: 10px;
+    }
+
+
+    /* Skills */
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .skill-group,
+    .skill-group:nth-child(odd),
+    .skill-group:nth-child(even) {
+
+        border-right: 0;
+
+        padding-left: 0;
+
+        padding-right: 0;
+    }
+
+
+    /* Education */
+
+    .education-content {
+        grid-template-columns: 1fr;
+
+        gap: 15px;
+    }
+
+
+    /* Contact */
+
+    .contact-links {
+        flex-wrap: wrap;
+
+        gap: 18px 25px;
+    }
+
+
+    /* Footer */
+
+    .footer {
+        padding: 25px 8%;
+    }
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 800px) {
+
+    .page {
+        width: 100%;
+        margin: 0;
+    }
+}
+
+/* =========================================
+   EXPLORE
+========================================= */
+
+.explore-content {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 15%;
+}
+
+.explore-intro h2 {
+    font-size: clamp(38px, 5vw, 65px);
+    line-height: 1.02;
+    letter-spacing: -0.045em;
+    font-weight: 300;
+}
+
+.explore-text {
+    max-width: 390px;
+    margin-top: 35px;
+    color: #777;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.explore-text p + p {
+    margin-top: 18px;
+}
+
+
+/* ASK BUTTON */
+
+.ask-area {
+    padding-top: 8px;
+}
+
+.ask-button {
+    background: none;
+    border: none;
+    border-bottom: 1px solid #222;
+    padding: 0 0 7px 0;
+
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    color: #111;
+
+    cursor: pointer;
+}
+
+.ask-button:hover {
+    color: #777;
+}
+
+
+/* QUESTION FORM */
+
+.question-form {
+    display: none;
+    margin-top: 35px;
+}
+
+.question-form.show {
+    display: block;
+}
+
+.question-form textarea,
+.question-form input {
+    width: 100%;
+
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #cfcfcb;
+
+    padding: 14px 0;
+
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    color: #111;
+
+    outline: none;
+}
+
+.question-form textarea {
+    resize: vertical;
+    min-height: 50px;
+    max-height: 110px;
+}
+
+.question-form textarea::placeholder,
+.question-form input::placeholder {
+    color: #999;
+}
+
+.question-form textarea:focus,
+.question-form input:focus {
+    border-bottom-color: #111;
+}
+
+
+/* FORM BOTTOM */
+
+.question-form-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-top: 25px;
+}
+
+.question-form-bottom span {
+    font-family: monospace;
+    font-size: 9px;
+    color: #888;
+}
+
+.question-form-bottom button {
+    background: none;
+    border: none;
+
+    font-family: monospace;
+    font-size: 10px;
+    color: #333;
+
+    cursor: pointer;
+
+    border-bottom: 1px solid #999;
+    padding-bottom: 4px;
+}
+
+.question-form-bottom button:hover {
+    color: #111;
+}
+
+/* =========================================
+   PREVIOUS QUERIES
+   ========================================= */
+
+.ask-area .previous-queries {
+    margin-top: 55px;
+}
+
+.ask-area button.previous-queries-btn {
+    display: inline-block;
+    appearance: none;
+    -webkit-appearance: none;
+
+    background: transparent !important;
+    border: none !important;
+    border-bottom: 1px solid #999 !important;
+
+    padding: 8px 0 !important;
+    margin: 0;
+
+    font-family: monospace !important;
+    font-size: 10px !important;
+    font-weight: 400 !important;
+    color: #555 !important;
+
+    line-height: normal;
+    cursor: pointer;
+}
+
+.ask-area button.previous-queries-btn:hover {
+    color: #111 !important;
+    border-bottom-color: #111 !important;
+}
+
+.answered-questions {
+    display: none;
+    margin-top: 35px;
+}
+
+.answered-questions.show {
+    display: block;
+}
+
+.explore-question {
+    padding: 25px 0;
+    border-top: 1px solid #d7d7d3;
+}
+
+.explore-question:last-child {
+    border-bottom: 1px solid #d7d7d3;
+}
+
+.explore-question-label {
+    margin-bottom: 10px;
+
+    font-family: monospace;
+    font-size: 9px;
+    color: #888;
+}
+
+.explore-question h3 {
+    max-width: 500px;
+    margin: 0;
+
+    font-family: Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.45;
+    font-weight: 400;
+    color: #111;
+}
+
+.explore-answer {
+    max-width: 500px;
+    margin-top: 15px;
+
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    line-height: 1.7;
+    color: #666;
+}
+
+.explore-answer-label {
+    display: block;
+    margin-bottom: 5px;
+
+    font-family: monospace;
+    font-size: 9px;
+    color: #111;
+}
+
+/* =========================================
+   ADMIN LINK
+   ========================================= */
+
+.admin-link {
+    margin-left: 25px;
+    color: #999;
+}
+
+.admin-link:hover {
+    color: #111;
+}
